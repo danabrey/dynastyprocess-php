@@ -1,0 +1,28 @@
+{
+    "name": "danabrey/dynastyprocess-php",
+    "description": "PHP library for fetching Dynasty Process player valuations",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dan Abrey",
+            "email": "danabrey@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "DanAbrey\\DynastyProcess\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.4",
+        "symfony/serializer": "^5.1",
+        "symfony/http-client": "^5.1",
+        "symfony/property-access": "^5.1",
+        "ext-json": "*",
+        "tightenco/collect": "^7.12"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    }
+}
