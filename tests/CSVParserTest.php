@@ -14,6 +14,14 @@ class CSVParserTest extends TestCase
         $this->service = new CSVParser();
     }
 
+    public function testPlayers()
+    {
+        $ids = file_get_contents(__DIR__ .'/_data/db_playerids.csv');
+        $result = $this->service->parseIds($ids);
+
+        $this->assertCount(2066, $result);
+    }
+
     public function testParseIdsAndValues()
     {
 

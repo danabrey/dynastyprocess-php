@@ -9,6 +9,12 @@ use Tightenco\Collect\Support\Collection;
 
 class CSVParser
 {
+    public function parseIds(string $idsCsv)
+    {
+        $serializer = new Serializer([new ObjectNormalizer()], [new CsvEncoder()]);
+        return $serializer->decode($idsCsv, 'csv');
+    }
+
     /**
      * Given the IDs and Values CSVs from Dynasty Process, combine them into one collection including MFL/FP IDs and values/ECR
      * @param string $idsCsv

@@ -1,6 +1,7 @@
 <?php
 namespace DanAbrey\DynastyProcess;
 
+use DanAbrey\DynastyProcess\Models\DynastyProcessPlayer;
 use DanAbrey\DynastyProcess\Models\DynastyProcessPlayerValue;
 use DanAbrey\MFLApi\Models\MFLPlayer;
 use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
@@ -22,6 +23,18 @@ class Client
     {
         $csv = file_get_contents(self::VALUES_CSV_URL);
         return $csv;
+    }
+
+    /**
+     * @return array|DynastyProcessPlayer[]
+     */
+    public function getPlayers(): array
+    {
+        $parser = new CSVParser();
+        $players = $parser->parseIds($this->getIdsCSV());
+        $normalizers = [new ArrayDenormalizer(), new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers);
+        return $serializer->denormalize($players, DynastyProcessPlayer::class . '[]');
     }
 
     /**
