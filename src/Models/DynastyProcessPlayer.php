@@ -16,7 +16,12 @@ class DynastyProcessPlayer
     public string $sleeper_id;
     public string $espn_id;
     public string $team;
-    public string $age;
+    /**
+     * @deprecated Replaced by $birthdate in May 2021 of https://raw.githubusercontent.com/dynastyprocess/data/master/files/db_playerids.csv
+     * Age still exists in the values.csv sheet
+     */
+    public ?string $age = null;
+    public string $birthdate;
     public string $draft_year;
     public string $draft_round;
     public string $draft_pick;

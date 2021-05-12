@@ -19,7 +19,7 @@ class CSVParserTest extends TestCase
         $ids = file_get_contents(__DIR__ .'/_data/db_playerids.csv');
         $result = $this->service->parseIds($ids);
 
-        $this->assertCount(2066, $result);
+        $this->assertCount(10502, $result);
     }
 
     public function testParseIdsAndValues()
@@ -30,7 +30,7 @@ class CSVParserTest extends TestCase
 
         $result = $this->service->parseIdsAndValues($ids, $values);
 
-        $this->assertCount(360, $result);
+        $this->assertCount(365, $result);
 
         $player = $result[3];
         $this->assertEquals('Ezekiel Elliott', $player['player']);
