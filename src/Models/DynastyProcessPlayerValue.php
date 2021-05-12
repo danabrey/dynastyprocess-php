@@ -7,7 +7,7 @@ class DynastyProcessPlayerValue
     public string $pos;
     public string $team;
     public string $age;
-    public int $draft_year;
+    public string $draft_year;
     public string $ecr_1qb;
     public string $ecr_2qb;
     public string $ecr_pos;
