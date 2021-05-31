@@ -16,4 +16,5 @@ class DynastyProcessPlayerValue
     public string $scrape_date;
     public string $fp_id;
     public string $mfl_id;
+    public string $fantasy_data_id;
 }

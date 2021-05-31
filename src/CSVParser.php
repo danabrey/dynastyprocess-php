@@ -34,6 +34,7 @@ class CSVParser
                 return [
                     'mfl_id' => $el['mfl_id'],
                     'fp_id' => $el['fantasypros_id'],
+                    'fantasy_data_id' => $el['fantasy_data_id'],
                 ];
             })
             ->keyBy('fp_id');
@@ -48,6 +49,9 @@ class CSVParser
                 }
                 $mflId = $ids[$el['fp_id']]['mfl_id'];
                 $el['mfl_id'] = $mflId;
+
+                $fantasyDataId = $ids[$el['fp_id']]['fantasy_data_id'];
+                $el['fantasy_data_id'] = $fantasyDataId;
                 return $el;
             })
             // Reject all 'false' - which are players in the values CSV that have FP ids that are not in the ids database (this happens sometimes for some reason, e.g. Cam Newton)

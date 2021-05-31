@@ -46,5 +46,6 @@ class CSVParserTest extends TestCase
         $this->assertEquals('2020-06-25', $player['scrape_date']);
         $this->assertEquals('15498', $player['fp_id']);
         $this->assertEquals('12625', $player['mfl_id']);
+        $this->assertEquals('17923', $player['fantasy_data_id']);
     }
 }
