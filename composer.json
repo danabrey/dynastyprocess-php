@@ -1,7 +1,7 @@
 {
     "name": "danabrey/dynastyprocess-php",
     "description": "PHP library for fetching Dynasty Process player valuations",
-    "version": "v1.4",
+    "version": "v1.5",
     "type": "library",
     "license": "MIT",
     "authors": [
