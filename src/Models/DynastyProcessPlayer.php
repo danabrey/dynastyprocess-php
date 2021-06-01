@@ -15,6 +15,8 @@ class DynastyProcessPlayer
     public string $cfbref_id;
     public string $sleeper_id;
     public string $espn_id;
+    public string $stats_global_id;
+    public string $fantasy_data_id;
     public string $team;
     /**
      * @deprecated Replaced by $birthdate in May 2021 of https://raw.githubusercontent.com/dynastyprocess/data/master/files/db_playerids.csv
