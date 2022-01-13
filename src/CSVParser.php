@@ -15,6 +15,15 @@ class CSVParser
         return $serializer->decode($idsCsv, 'csv');
     }
 
+    public function parseValues(string $valuesCsv)
+    {
+        $parser = new CSVParser();
+        $serializer = new Serializer([new ObjectNormalizer()], [new CsvEncoder()]);
+        $decodedValuesCsv = $serializer->decode($valuesCsv, 'csv');
+
+        return $decodedValuesCsv;
+    }
+
     /**
      * Given the IDs and Values CSVs from Dynasty Process, combine them into one collection including MFL/FP IDs and values/ECR
      * @param string $idsCsv

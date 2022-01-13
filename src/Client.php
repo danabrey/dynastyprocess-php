@@ -3,10 +3,13 @@ namespace DanAbrey\DynastyProcess;
 
 use DanAbrey\DynastyProcess\Models\DynastyProcessPlayer;
 use DanAbrey\DynastyProcess\Models\DynastyProcessPlayerValue;
+use DanAbrey\DynastyProcess\Models\DynastyProcessValue;
 use DanAbrey\MFLApi\Models\MFLPlayer;
+use Symfony\Component\Serializer\Encoder\CsvEncoder;
 use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
+use Tightenco\Collect\Support\Collection;
 
 class Client
 {
@@ -39,6 +42,7 @@ class Client
 
     /**
      * @return array|DynastyProcessPlayerValue[]
+     * @deprecated 1.6 Will be replaced by more accurately named getPlayerValues() in version 2.0.
      */
     public function getValues(): array
     {
@@ -47,5 +51,25 @@ class Client
         $normalizers = [new ArrayDenormalizer(), new ObjectNormalizer()];
         $serializer = new Serializer($normalizers);
         return $serializer->denormalize($parsed, DynastyProcessPlayerValue::class . '[]');
+    }
+
+    /**
+     * @return array|DynastyProcessPlayerValue[]
+     */
+    public function getPlayerValues(): array
+    {
+        return $this->getValues();
+    }
+
+    /**
+     * @return array|DynastyProcessPlayerValue[]
+     */
+    public function getAllValues(): array
+    {
+        $parser = new CSVParser();
+        $parsed = $parser->parseValues($this->getValuesCSV());
+        $normalizers = [new ArrayDenormalizer(), new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers);
+        return $serializer->denormalize($parsed, DynastyProcessValue::class . '[]');
     }
 }
