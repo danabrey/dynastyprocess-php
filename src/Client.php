@@ -13,8 +13,8 @@ use Tightenco\Collect\Support\Collection;
 
 class Client
 {
-    private const IDS_CSV_URL = 'https://github.com/tanho63/dynastyprocess/raw/master/files/db_playerids.csv';
-    private const VALUES_CSV_URL = 'https://github.com/tanho63/dynastyprocess/raw/master/files/values.csv';
+    private const IDS_CSV_URL = 'https://github.com/DynastyProcess/data/raw/master/files/db_playerids.csv';
+    private const VALUES_CSV_URL = 'https://github.com/DynastyProcess/data/raw/master/files/values.csv';
 
     protected function getIdsCSV()
     {
