@@ -2,10 +2,10 @@
 namespace DanAbrey\DynastyProcess;
 
 
+use Illuminate\Support\Collection;
 use Symfony\Component\Serializer\Encoder\CsvEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
-use Tightenco\Collect\Support\Collection;
 
 class CSVParser
 {
